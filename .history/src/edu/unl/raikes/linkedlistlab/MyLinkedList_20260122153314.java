@@ -240,11 +240,7 @@ public class MyLinkedList<E> implements List<E> {
     @Override
     public E remove(int index) {
         Node current = getNode(index);
-        if (index == 0) {
-            head = head.next;
-        } else {
-            getNode(index - 1).next = current.next;
-        }
+        getNode(index - 1).next = getNode(index + 1);
         size--;
         return current.cargo;
     }

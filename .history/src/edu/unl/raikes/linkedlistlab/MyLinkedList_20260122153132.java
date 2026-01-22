@@ -174,8 +174,9 @@ public class MyLinkedList<E> implements List<E> {
                 index = i;
             }
             node = node.next;
+            return index;
         }
-        return index;
+        return -1;
     }
 
     /**
@@ -229,10 +230,10 @@ public class MyLinkedList<E> implements List<E> {
     @Override
     public boolean remove(Object obj) {
         int indexOfRemoveNode = indexOf(obj);
+        remove(indexOfRemoveNode);
         if (indexOfRemoveNode == -1) {
             return false;
         } else {
-            remove(indexOfRemoveNode);
             return true;
         }
     }
@@ -240,11 +241,7 @@ public class MyLinkedList<E> implements List<E> {
     @Override
     public E remove(int index) {
         Node current = getNode(index);
-        if (index == 0) {
-            head = head.next;
-        } else {
-            getNode(index - 1).next = current.next;
-        }
+        getNode(index - 1).next = getNode(index + 1);
         size--;
         return current.cargo;
     }

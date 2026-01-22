@@ -81,7 +81,7 @@ public class MyLinkedListTest {
         } // good
 
         mll.add(0, 6);
-        //System.out.println(Arrays.toString(mll.toArray()));
+        System.out.println(Arrays.toString(mll.toArray()));
         assertThat(mll.get(0), is(6));
 
         mll.add(5, 7);
